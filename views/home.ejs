@@ -1,4 +1,3 @@
-  
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -7,9 +6,22 @@
         <title>Test</title>
     </head>
 
-    <body>
+    <!-- *****************Important********************* -->
+    <!-- *****************Important********************* -->
+    <!-- *****************Important********************* -->
+    <!-- *****************Important********************* -->
+    <!-- *****************Important********************* -->
+    <!-- *****************Important********************* -->
+    <!-- This file is a .ejs this means that you can put javascript code inside the marks
+    <% %> and that give us the chance to modify the html very fast and easy. The other marks for 
+    the given variables from the backend is the <%= %>, here we can put the variables that the backend
+    provides for this file. This part of the code is not the important because is only one way to show
+    the information but important thing is how get that information from the API and that is made it
+    in the server side with fetch-->
 
+    <body>
         <header>
+            <!-- This is a class from bootstrap-->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
                     
@@ -19,32 +31,38 @@
                     <div class="navbar-brand">
                         navigation
                     </div>
+
                 </div>
             </nav>
-            
-            
         </header>
 
         <main>
             <div class="container-sm">
                 <div class="row">
                     <div class="col-sm">
-                    
+                        
+                        <!--Here we say "the method is going to be a 'POST' method and the action is '/'-->
                         <form method="POST" action="/">
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Insert Link</label>
+                                
+                                <!-- Here is very important the name of the input, because the POST route in the backend
+                                is going to read the property "req.body.input"-->
                                 <input type="text" name="input" class="form-control" id="name" placeholder="URL">
                             </div>
                             <input type="submit" value="submit">
                         </form>
-                    
-        
-                    
-                        
                     </div>
                 </div>
             <div id="results">
+
+                <!-- Here we use the variable "responseIsExist" for say if we going to show this section or
+                we will ignore it.-->
                 <% if(responseIsExist){ %>
+
+                <!-- Here we put the text 'form results' and then we use the forEach method to iterate in the
+                array of objects that the API give us. I in particular chose to show the labels that the
+                API returns, but you can show what you want from the response -->
                 <strong>Form Results:</strong>
                 <% response.category_list.forEach(element => { %>
                     <div class="alert alert-success" role="alert">
